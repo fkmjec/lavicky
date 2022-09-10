@@ -1,6 +1,7 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 import argparse
+import scipy
 
 START_DATE = pd.Timestamp("2017-07-01")
 END_DATE = pd.Timestamp("2018-01-31")
@@ -30,6 +31,22 @@ if __name__ == "__main__":
     temperature = pd.read_csv(args.temperature_csv)
     cropped_dates = add_datetime(temperature)
     benches = pd.read_csv(args.bench_csv)
+    # ax = plt.gca()
+
     benches["Datum"] = pd.to_datetime(benches["Datum"])
-    benches.plot(x="Datum", y="Nabijeni", kind="line")
+    fig, axes = plt.subplots(1, 2)
+    t_axis = axes[0]
+    b_axis = axes[1]
+
+    t_axis.set_xlabel("Datum")
+    t_axis.set_ylabel("Průměrná teplota ve stupních Celsia")
+
+    b_axis.set_xlabel("Datum")
+    b_axis.set_ylabel("Počet minut nabíjení")
+
+    benches.plot(x="Datum", y="Nabijeni", kind="line", ax=b_axis)
+    cropped_dates.plot(x="date", y="T-AVG", ax=t_axis, color="red")
+
+    
+
     plt.show()
