@@ -32,4 +32,4 @@ prohlásit, že teplota a minuty nabíjení spolu korelují.
 Chceme zjistit, jestli počet minut nabíjení za den nějak souvisí s tím, jestli je pracovní den, nebo víkend. Nulová hypotéza je, že střední hodnoty jsou
 stejné pro pracovní den i víkend. Pro to, abychom to ověřili, použijeme studentův T-test. Trochu naivně budeme předpokládat nezávislost obou souborů vzorků.
 Opět si stanovíme hladinu významnosti na 0.05.
-Pomocí funkce `scipy.stats.ttest_ind()` provedeme test a dostaneme p mírně nad naší kritickou hodnotu. Nemůžeme tedy nulovou hypotézu.
+Pomocí funkce `scipy.stats.ttest_ind()` provedeme test a dostaneme p mírně nad naší kritickou hodnotu. Nemůžeme tedy nulovou hypotézu s velkou jistotou vyloučit.
